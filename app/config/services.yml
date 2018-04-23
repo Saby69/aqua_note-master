@@ -29,6 +29,13 @@ services:
         public: true
         tags: ['controller.service_arguments']
 
+    AppBundle\DataFixtures\:
+            resource: '../../src/AppBundle/DataFixtures'
+            tags: ['doctrine.fixture.orm']
+
+    AppBundle\DataFixtures\ORM\GenusProvider:
+       tags: [nelmio_alice.faker.provider]
+
     # add more services, or override services that need manual wiring
     # AppBundle\Service\ExampleService:
     #     arguments:

@@ -39,11 +39,25 @@ class Genus
     private $speciesCount;
 
     /**
-     * @ORM\Column(type="string")
+     * @ORM\Column(type="string", nullable=true)
      */private $funFact;
 
     /**
-     * @return mixed
+     * @ORM\Column(type="boolean")
+     */
+    private $isPublished = true;
+
+    /**
+     * @param mixed $isPublished
+     */
+    public function setIsPublished($isPublished)
+    {
+        $this->isPublished = $isPublished;
+    }
+
+    /**
+     * @return mixedy
+     *
      */
 
     public function getName()
@@ -106,6 +120,12 @@ class Genus
     public function setFunFact($funFact)
     {
         $this->funFact = $funFact;
+    }
+
+
+    public function getUpdatedAt()
+    {
+        return new \DateTime('-'.rand(0, 100).' days');
     }
 
 }
